@@ -1,0 +1,21 @@
+# sqlnet.ora
+# This file contains the configuration settings for Oracle Network Encryption
+
+# Specify the directory for Oracle Wallets
+WALLET_LOCATION = (SOURCE = (METHOD = FILE) (METHOD_DATA = (DIRECTORY = /path/to/wallet)))
+
+# Enable encryption and integrity
+SQLNET.ENCRYPTION_SERVER = REQUIRED
+SQLNET.ENCRYPTION_TYPES_SERVER = (AES256)
+SQLNET.CRYPTO_CHECKSUM_SERVER = REQUIRED
+SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER = (SHA256)
+
+# Enable encryption and integrity for the client (if needed)
+SQLNET.ENCRYPTION_CLIENT = REQUIRED
+SQLNET.ENCRYPTION_TYPES_CLIENT = (AES256)
+SQLNET.CRYPTO_CHECKSUM_CLIENT = REQUIRED
+SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT = (SHA256)
+
+# Additional network settings (optional)
+SQLNET.AUTHENTICATION_SERVICES = (NONE)
+SQLNET.EXPIRE_TIME = 10
